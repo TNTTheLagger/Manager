@@ -16,10 +16,10 @@ app.use(body_parser.json());
 
 function sqlQuerry(querry){
     var con = mysql.createConnection({
-        host: "play.mysticland.hu",
-        user: "root2",
-        password: "password123",
-        database: "masszazstimetable"
+        host: "",
+        user: "",
+        password: "",
+        database: ""
     });
     con.connect(function(err) {
         if (err) {
