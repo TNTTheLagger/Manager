@@ -4,7 +4,7 @@
   "description": "A program to manage ur day",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "main": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/TNTTheLagger/Manager/issues"
   },
-  "homepage": "https://github.com/TNTTheLagger/Manager#readme"
+  "homepage": "https://github.com/TNTTheLagger/Manager#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jquery": "^3.6.0",
+    "mysql": "^2.18.1",
+    "vercel": "^30.0.0"
+  }
 }
