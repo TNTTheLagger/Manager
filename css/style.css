@@ -91,7 +91,7 @@ header {
     border-radius: 30px;
 }
 
-#DNT{
+#DON{
     background-color: #e5e5e5;
     margin: 10px;
     padding: 10px;
@@ -105,10 +105,24 @@ header {
     cursor: pointer;
 }
 
-#DNT:hover{
+#DON:hover{
     transition: all 0.3s ease 0s;
     background-color: #bf520c;
     cursor: pointer;
+}
+
+.CELL{
+  background-color: #e5e5e5;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #e5e5e5;
+  border-radius: 30px;
+}
+
+.CELL:hover{
+  transition: all 0.3s ease 0s;
+  background-color: #bf520c;
+  cursor: pointer;
 }
 
 /* Calendar */
