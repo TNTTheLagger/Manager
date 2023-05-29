@@ -4,7 +4,8 @@
   "description": "A program to manage ur day",
   "main": "index.js",
   "scripts": {
-    "main": "node index.js"
+    "main": "node index.js",
+    "prod": "node index.js"
   },
   "repository": {
     "type": "git",
