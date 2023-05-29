@@ -8,6 +8,8 @@ const body_parser = require('body-parser');
 //var credentials = {key: privateKey, cert: certificate};
 var express = require('express');
 var app = express();
+var cors = require('cors')
+app.use(cors());
 var path = require('path');
 const Console = require("console");
 //var httpsServer = https.createServer(credentials,app);
