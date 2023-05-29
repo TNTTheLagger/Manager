@@ -8,7 +8,7 @@ const body_parser = require('body-parser');
 //var credentials = {key: privateKey, cert: certificate};
 var express = require('express');
 var app = express();
-var cors = require('cors')
+var cors = require('cors');
 app.use(cors());
 var path = require('path');
 const Console = require("console");
@@ -73,6 +73,13 @@ app.get('/css/style', function(req, res) {
     console.log(req.originalUrl);
     res.sendFile(path.join(__dirname + '/css/style.css'));
 });
+
+app.get('/api/tasks', function(req, res) {
+    console.log(req.originalUrl);
+    res.sendFile(path.join(__dirname + ''));
+});
+
+
 
 httpServer.listen(8080, () => {
     console.log("server starting on port : http://localhost:" + 8080);
