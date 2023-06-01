@@ -9,7 +9,7 @@
     <script src="/js/main"></script>
     <title>MYD Calendar</title>
 </head>
-<body>
+<body onload="getCalendarPlan()">
 
     <header>
         <nav>
@@ -39,31 +39,10 @@
               -->
             </div>
           </div>
-          <div class="calendar_events">
+          <div class="calendar_events" id="calendar_eve">
             <p class="ce_title">Upcoming Events</p>
-            <div class="event_item">
-              <div class="ei_Dot dot_active"></div>
+              <div class="event_item">
               <div class="ei_Title">10:30 am</div>
-              <div class="ei_Copy">.......</div>
-            </div>
-            <div class="event_item">
-              <div class="ei_Dot"></div>
-              <div class="ei_Title">12:00 pm</div>
-              <div class="ei_Copy">.......</div>
-            </div>
-            <div class="event_item">
-              <div class="ei_Dot"></div>
-              <div class="ei_Title">13:00 pm</div>
-              <div class="ei_Copy">.......</div>
-            </div>
-            <div class="event_item">
-              <div class="ei_Dot"></div>
-              <div class="ei_Title">14:30 am</div>
-              <div class="ei_Copy">.......</div>
-            </div>
-            <div class="event_item">
-              <div class="ei_Dot"></div>
-              <div class="ei_Title">15:30 am</div>
               <div class="ei_Copy">.......</div>
             </div>
           </div>
