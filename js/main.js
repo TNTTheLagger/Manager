@@ -51,8 +51,13 @@ async function getTasksIndex(){
 
     }
 }
-
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 async function getCalendarPlan(){
+  var d = new Date();
+  var current_time = document.getElementById("current_time");
+  current_time.innerHTML = d.getDate() + "  " + monthNames[d.getMonth()] + "  " + d.getFullYear();
   var tasks = await getTasks();
   tasks.sort(function(a, b){
     var dateA=new Date(a.date), dateB=new Date(b.date)
