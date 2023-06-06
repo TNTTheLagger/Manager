@@ -137,8 +137,7 @@ header {
 }
 
 .dark{
-  position: absolute;
-  left: 14%;
+  float: left;
 }
 
 .calendar{
@@ -250,15 +249,13 @@ iframe{
 .calendar_event_upl{
   border: #646464 2px solid;
   border-radius: 15px;
-  position: absolute;
 
   margin: 40px;
   padding: 20px;
+  float: left;
 
   width: 200px;
   height: 385px;
-  right: 20%;
-  top: 17%;
 
 
   background-color: #363b41;;
