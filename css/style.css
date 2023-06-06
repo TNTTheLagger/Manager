@@ -129,6 +129,7 @@ header {
 
 .container{
   margin: 100px auto;
+  margin-left: 300px;
   width: 1000px;
 }
 
@@ -137,7 +138,6 @@ header {
 }
 
 .dark{
-  float: left;
 }
 
 .calendar{
@@ -250,9 +250,9 @@ iframe{
   border: #646464 2px solid;
   border-radius: 15px;
 
-  margin: 40px;
-  padding: 20px;
-  float: left;
+  padding: 15px;
+  margin-top: 105px;
+  margin-right: 400px;
 
   width: 200px;
   height: 385px;
@@ -265,4 +265,8 @@ iframe{
 
 .i_size{
   border-radius: 10px;
+}
+
+.ct{
+  display: flex;
 }
