@@ -1,23 +1,24 @@
 function addTask(){
     var name = document.getElementById("name").value;
     var details = document.getElementById("details").value;
-    var isCompleted = document.getElementById("isCompleted").value;
+    var isCompleted = 0;
     var date = document.getElementById("date").value;
-    
-    const body = {
+    var time = document.getElementById("time").value;
+
+    date = date + "T" + time;
+
+    fetch("/api/addTask", {
+      method: "POST",
+      body: JSON.stringify({
         name: name,
         details: details,
         isCompleted: isCompleted,
         date: date
-      };
-      $.post("/api/addTask", body, (data, status) => {
-        if (data == null){
-            alert("An error occured while adding the task!");
-        }
-        else{
-            alert("Task added successfully!");
-        }
-      });
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    });
 }
 
 async function getTasks(){
@@ -36,17 +37,10 @@ async function getTasks(){
 async function getTasksIndex(){
     var tasks = await getTasks();
     var INPT = document.getElementById("INPT");
-    var DONT = document.getElementById("DONT");
     for (var i = 0; i < tasks.length; i++){
         var template = document.getElementById("INP").cloneNode(true);
         console.log(tasks[i].inProgress);
-        if(tasks[i].isCompleted === 1){
-            template.classList.add("CELL");
-            template.id = tasks[i].id;
-            template.childNodes[1].innerHTML = tasks[i].name;
-            template.childNodes[3].innerHTML = tasks[i].details;
-            DONT.appendChild(template);
-        }else{
+        if(tasks[i].isCompleted !== 1){
             template.classList.add("CELL");
             template.id = tasks[i].id;
             template.childNodes[1].innerHTML = tasks[i].name;
@@ -73,13 +67,13 @@ async function getCalendarPlan(){
       if(tasks[i].inProgress === 1){
         calendar_events.classList.add("event_item_active");
         console.log(calendar_events.childNodes);
-        calendar_events.childNodes[1].innerHTML = tdate.getDate() + "/" + (tdate.getMonth()+1) + "/" + tdate.getFullYear() + " " + tdate.getHours() + ":" + tdate.getMinutes() + ":" + tdate.getSeconds() + " - " + tasks[i].name;
-        calendar_events.childNodes[3].innerHTML = tasks[i].details;  
+        calendar_events.childNodes[1].innerHTML = tdate.getDate() + "/" + (tdate.getMonth()+1) + "/" + tdate.getFullYear() + " " + tdate.getHours() + ":" + tdate.getMinutes() + ":" + tdate.getSeconds() + " - " + tasks[i].details;
+        calendar_events.childNodes[3].innerHTML = tasks[i].name;  
         document.getElementById("calendar_eve").appendChild(calendar_events);
       }else{
         console.log(calendar_events.childNodes);
-        calendar_events.childNodes[1].innerHTML = tasks[i].details;
-        calendar_events.childNodes[3].innerHTML = tdate.getDate() + "/" + (tdate.getMonth()+1) + "/" + tdate.getFullYear() + " " + tdate.getHours() + ":" + tdate.getMinutes() + ":" + tdate.getSeconds() + " - " + tasks[i].name;
+        calendar_events.childNodes[1].innerHTML = tasks[i].name;
+        calendar_events.childNodes[3].innerHTML = tdate.getDate() + "/" + (tdate.getMonth()+1) + "/" + tdate.getFullYear() + " " + tdate.getHours() + ":" + tdate.getMinutes() + ":" + tdate.getSeconds() + " - " + tasks[i].details;
         document.getElementById("calendar_eve").appendChild(calendar_events);
       }
     }

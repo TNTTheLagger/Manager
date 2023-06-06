@@ -2,7 +2,7 @@ var fs = require('fs');
 var http = require('http');
 var https = require('https');
 var mysql = require('mysql');
-const fetch = require('node-fetch');
+//const fetch = require('node-fetch');
 const util = require('util');
 const body_parser = require('body-parser');
 //var privateKey  = fs.readFileSync('/sslcert/server.key', 'utf8');
@@ -81,15 +81,18 @@ app.get('/css/style.css', function(req, res) {
 //     res.sendFile(path.join(__dirname + '/node_modules.zip'));
 // });
 
-app.post('/api/addTask', async function(req, res) {
+app.post('/api/addTask',body_parser.json(), (req, res) => {
     console.log("["+new Date().toLocaleDateString()+" " +new Date().toLocaleTimeString()+"] - "+req.originalUrl);
-    var name = req.query.name;
-    var details = req.query.details;
-    var isCompleted = req.query.isCompleted;
-    var date = req.query.date;
+    console.log(req.body);
+    var name = req.body.name;
+    var details = req.body.details;
+    var isCompleted = req.body.isCompleted;
+    var date = req.body.date;
+    console.log(name, details, isCompleted, date);
     var querry = "INSERT INTO tasksdb.tasks (name, details, inProgress, date) VALUES ('"+name+"', '"+details+"', '"+isCompleted+"', '"+date+"');";
-    var result = await sqlQuerry(querry);
-    res.send(result);
+    var result = sqlQuerry(querry);
+    console.log(result);
+    res.sendStatus(200);
 });
 
 app.get('/api/getTasks', async function(req, res) {
