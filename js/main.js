@@ -1,24 +1,25 @@
 function addTask(){
-    var name = document.getElementById("name").value;
-    var details = document.getElementById("details").value;
-    var isCompleted = 0;
-    var date = document.getElementById("date").value;
-    var time = document.getElementById("time").value;
+  var name = document.getElementById("name").value;
+  var details = document.getElementById("details").value;
+  var isCompleted = 0;
+  var date = document.getElementById("date").value;
+  var time = document.getElementById("time").value;
 
-    date = date + "T" + time;
+  date = date + "T" + time;
 
-    fetch("/api/addTask", {
-      method: "POST",
-      body: JSON.stringify({
-        name: name,
-        details: details,
-        isCompleted: isCompleted,
-        date: date
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    });
+  fetch("/api/addTask", {
+    method: "POST",
+    body: JSON.stringify({
+      name: name,
+      details: details,
+      isCompleted: isCompleted,
+      date: date
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  });
+  location.reload();
 }
 
 async function getTasks(){
