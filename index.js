@@ -45,27 +45,32 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/html/index.html'));
 });
 
-app.get('/authors', function(req, res) {
+app.get('/index.html', function(req, res) {
+    console.log("["+new Date().toLocaleDateString()+" " +new Date().toLocaleTimeString()+"] - "+req.originalUrl);
+    res.sendFile(path.join(__dirname + '/html/index.html'));
+});
+
+app.get('/authors.html', function(req, res) {
     console.log("["+new Date().toLocaleDateString()+" " +new Date().toLocaleTimeString()+"] - "+req.originalUrl);
     res.sendFile(path.join(__dirname + '/html/authors.html'));
 });
 
-app.get('/calendar', function(req, res) {
+app.get('/calendar.html', function(req, res) {
     console.log("["+new Date().toLocaleDateString()+" " +new Date().toLocaleTimeString()+"] - "+req.originalUrl);
     res.sendFile(path.join(__dirname + '/html/calendar.html'));
 });
 
-app.get('/img/hatter', function(req, res) {
+app.get('/img/hatter.png', function(req, res) {
     console.log("["+new Date().toLocaleDateString()+" " +new Date().toLocaleTimeString()+"] - "+req.originalUrl);
     res.sendFile(path.join(__dirname + '/img/hatter.png'));
 });
 
-app.get('/js/main', function(req, res) {
+app.get('/js/main.js', function(req, res) {
     console.log("["+new Date().toLocaleDateString()+" " +new Date().toLocaleTimeString()+"] - "+req.originalUrl);
     res.sendFile(path.join(__dirname + '/js/main.js'));
 });
 
-app.get('/css/style', function(req, res) {
+app.get('/css/style.css', function(req, res) {
     console.log("["+new Date().toLocaleDateString()+" " +new Date().toLocaleTimeString()+"] - "+req.originalUrl);
     res.sendFile(path.join(__dirname + '/css/style.css'));
 });
